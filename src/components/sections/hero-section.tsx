@@ -2,9 +2,9 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
 const images = [
-  "/minimal-architecture-portfolio-with-clean-lines.jpg",
-  "/fashion-photography-editorial-black-and-white.jpg",
-  "/modern-ui-design-portfolio-mockup.jpg",
+  "https://cdn.poehali.dev/projects/47110f39-25e0-4acd-8600-7755b38863c4/files/0db19c86-0cdd-4761-b7e4-9843c242fd3a.jpg",
+  "https://cdn.poehali.dev/projects/47110f39-25e0-4acd-8600-7755b38863c4/files/9e103cfc-d188-4cc2-93e0-71a0e896f7bb.jpg",
+  "https://cdn.poehali.dev/projects/47110f39-25e0-4acd-8600-7755b38863c4/files/bb425d32-2721-4226-8451-2644ad65ce08.jpg",
 ]
 
 export function HeroSection() {
@@ -26,7 +26,6 @@ export function HeroSection() {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background px-6 py-24"
     >
-      {/* Stacked images */}
       <div className="relative flex items-center justify-center">
         <motion.div
           className="absolute w-[280px] md:w-[320px] aspect-[3/4] rounded-xl overflow-hidden shadow-2xl"
@@ -36,8 +35,8 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <img
-            src={images[0] || "/placeholder.svg"}
-            alt="Портфолио 1"
+            src={images[0]}
+            alt="Свадьба 1"
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -50,8 +49,8 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
           <img
-            src={images[1] || "/placeholder.svg"}
-            alt="Портфолио 2"
+            src={images[1]}
+            alt="Свадьба 2"
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -64,22 +63,28 @@ export function HeroSection() {
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <img
-            src={images[2] || "/placeholder.svg"}
-            alt="Портфолио 3"
+            src={images[2]}
+            alt="Свадьба 3"
             className="w-full h-full object-cover"
           />
         </motion.div>
       </div>
 
       <motion.div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
+        className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10 gap-4"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.8 }}
       >
+        <p className="text-sm uppercase tracking-[0.3em] text-foreground/60 mix-blend-difference font-sans">
+          Мы женимся
+        </p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-center text-foreground mix-blend-difference">
-          Ваши работы, <em className="italic">в фокусе</em>.
+          Анна <em className="italic">&</em> Михаил
         </h1>
+        <p className="text-lg md:text-xl font-serif italic text-foreground/70 mix-blend-difference">
+          14 июня 2025
+        </p>
       </motion.div>
 
       <motion.div

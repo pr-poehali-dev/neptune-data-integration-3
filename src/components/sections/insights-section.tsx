@@ -3,26 +3,26 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 
-const articles = [
+const schedule = [
   {
-    title: "Искусство визуального сторителлинга",
-    category: "Дизайн",
-    image: "/visual-storytelling-design-article.jpg",
+    title: "Регистрация брака",
+    category: "14:00",
+    image: "https://cdn.poehali.dev/projects/47110f39-25e0-4acd-8600-7755b38863c4/files/bb425d32-2721-4226-8451-2644ad65ce08.jpg",
   },
   {
-    title: "Как создать личный бренд онлайн",
-    category: "Стратегия",
-    image: "/personal-branding-digital-marketing.jpg",
+    title: "Фотосессия и прогулка",
+    category: "15:30",
+    image: "https://cdn.poehali.dev/projects/47110f39-25e0-4acd-8600-7755b38863c4/files/0db19c86-0cdd-4761-b7e4-9843c242fd3a.jpg",
   },
   {
-    title: "Тренды типографики 2025",
-    category: "Типографика",
-    image: "/typography-trends-modern-fonts.jpg",
+    title: "Банкет и ужин",
+    category: "17:00",
+    image: "https://cdn.poehali.dev/projects/47110f39-25e0-4acd-8600-7755b38863c4/files/c451564d-227a-4692-abec-2aaec64e006a.jpg",
   },
   {
-    title: "Минимализм в дизайне портфолио",
-    category: "Вдохновение",
-    image: "/placeholder.svg?height=200&width=300",
+    title: "Первый танец молодожёнов",
+    category: "20:00",
+    image: "https://cdn.poehali.dev/projects/47110f39-25e0-4acd-8600-7755b38863c4/files/66806319-0048-402c-8810-7460d1775714.jpg",
   },
 ]
 
@@ -43,15 +43,14 @@ export function InsightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Статьи
+          Программа дня
         </motion.p>
 
         <div className="divide-y divide-border">
-          {articles.map((article, i) => (
-            <motion.a
+          {schedule.map((item, i) => (
+            <motion.div
               key={i}
-              href="#"
-              className="group flex items-center justify-between py-6 relative"
+              className="group flex items-center justify-between py-6 relative cursor-default"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -62,17 +61,16 @@ export function InsightsSection() {
               data-clickable
             >
               <div className="flex-1">
-                <span className="text-xs text-muted-foreground uppercase tracking-wider">{article.category}</span>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider font-sans">{item.category}</span>
                 <h3 className="font-serif text-xl md:text-2xl text-foreground mt-1 group-hover:text-primary transition-colors">
-                  {article.title}
+                  {item.title}
                 </h3>
               </div>
               <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-            </motion.a>
+            </motion.div>
           ))}
         </div>
 
-        {/* Floating hover image */}
         <AnimatePresence>
           {hoveredIndex !== null && (
             <motion.div
@@ -88,8 +86,8 @@ export function InsightsSection() {
               transition={{ duration: 0.2 }}
             >
               <img
-                src={articles[hoveredIndex].image || "/placeholder.svg"}
-                alt={articles[hoveredIndex].title}
+                src={schedule[hoveredIndex].image}
+                alt={schedule[hoveredIndex].title}
                 className="w-full h-auto"
               />
             </motion.div>
